@@ -11,8 +11,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
-n = 5 #Number of species
-n_population = 10000. #Total number of initial populations
+n = 10 #Number of species
+n_population = 1*10**7. #Total number of initial populations
 n_resource = 300. #Number of initial resource
 mu_max = [0.07 for i in range(n)] #Maximum specific growth rate
 half_sat = [5. for i in range(n)] #Half Saturation Constant
@@ -43,9 +43,11 @@ def rk(h,N):
 		yn[n] = 0
 	return yn
 
-#Initial Populations
-IN = [10**(2+5*random()) for i in range(n)]
+#Initial Populations: Here, the initial population is random with the total population always constant
+r_no = [random() for i in range(n)]
+r_no = np.divide(r_no,sum(r_no))*n_population
 #Initial resource (Using a single array to store populations and resource)
+IN = [r_no[i] for i in range(n)]
 IN.append(n_resource)
 
 
