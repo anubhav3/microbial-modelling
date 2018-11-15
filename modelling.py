@@ -74,17 +74,17 @@ for i in range(n+1):
 #Plotting
 fig, ax1 = plt.subplots()
 
-color = 'tab:red'
+
 ax1.set_xlabel('time (t)')
-ax1.set_ylabel('populations', color=color)
+ax1.set_ylabel('populations')
 for i in range(n):	
 	plt.plot(x_t,ts[i])
 
+
 ax2 = ax1.twinx()
-color = 'tab:blue'
-ax2.set_ylabel('resource', color="black")	
+ax2.set_ylabel('resource')	
 ax2.plot(x_t,ts[n],color="black")
-# fig.tight_layout()
+fig.tight_layout()
 plt.show()
 
 
